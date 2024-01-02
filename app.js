@@ -27,10 +27,14 @@ function ticTacToe() {
     nextTurn()
   };
 
-  function setPlayersNames() {
-    players.first.name = prompt()
-    players.second.name = prompt()
+  function setPlayersNames(player) {
+    if (player === 1) {
+      players.first.name = prompt()
+    } else {
+      players.second.name = prompt()
+    };
   };
+
   function getPlayersNames(player) {
     if (player === "first") {
       return players.first.name;
