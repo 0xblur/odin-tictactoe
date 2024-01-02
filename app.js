@@ -31,9 +31,9 @@ function ticTacToe() {
 
   function setPlayersNames(player) {
     if (player === 1) {
-      players.first.name = prompt()
+      players.first.name = prompt() || players.first.name;
     } else {
-      players.second.name = prompt()
+      players.second.name = prompt() || players.second.name;
     };
   };
 
