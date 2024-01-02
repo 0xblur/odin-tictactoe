@@ -36,9 +36,9 @@ function ticTacToe() {
   };
 
   function getPlayersNames(player) {
-    if (player === "first") {
+    if (player === 1) {
       return players.first.name;
-    } else if (player === "second") {
+    } else if (player === 2) {
       return players.second.name;
     }
 
