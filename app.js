@@ -35,3 +35,26 @@
       draw()
     }
   }
+function Gameboard() {
+  const board = [
+    [],
+    [],
+    [],
+  ]
+
+  const getBoard = () => board;
+
+  const fillCell = (coordinates, player) => {
+    const [row, column] = coordinates
+
+    if (player === 1) {
+      board[row][column] = "X";
+    } else {
+      board[row][column] = "O";
+    };
+  };
+
+  return { getBoard, fillCell }
+
+}
+}
