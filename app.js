@@ -25,7 +25,7 @@ function ticTacToe() {
 
   function playRound(coordinates, player = currentPlayer) {
     board.fillCell(coordinates, player)
-    board.checkBoard()
+    checkBoard()
     nextTurn()
   };
 
