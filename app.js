@@ -138,6 +138,9 @@ function ScreenController() {
   const game = ticTacToe();
   const playerTurnDiv = document.querySelector("#player-turn")
   const cells = document.querySelectorAll(".cell")
+  const resetBtn = document.querySelector("#reset");
+  const playerOneBtn = document.querySelector("#player-one");
+  const playerTwoBtn = document.querySelector("#player-two");
 
   const clearCells = (cell) => {
     cells.forEach((cell) => {
