@@ -39,6 +39,12 @@ function ticTacToe() {
     }
 
   }
+
+
+
+  return { playRound, getCurrentPlayer, setPlayersNames, getPlayersNames }
+};
+
   function checkBoard() {
     if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
       playerWins()
