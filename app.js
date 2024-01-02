@@ -179,7 +179,14 @@ function ScreenController() {
   //Initialize empty board
   clearCells();
   //Prompt for player names
-  game.setPlayersNames()
+  playerOneBtn.addEventListener("click", () => {
+    game.setPlayersNames(1);
+    updateDisplay()
+  });
+  playerTwoBtn.addEventListener("click", () => {
+    game.setPlayersNames(2)
+    updateDisplay()
+  });
   //Initialize display
   updateDisplay();
 
@@ -187,6 +194,9 @@ function ScreenController() {
   cells.forEach((cell) => {
     cell.addEventListener("click", clickHandler)
   });
+
+  //Reset button handler
+  resetBtn.addEventListener("click", () => ScreenController())
 
 }
 
