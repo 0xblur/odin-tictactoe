@@ -46,9 +46,77 @@ function ticTacToe() {
 
   }
 
+  function resetGame() {
+    currentPlayer = 1;
+    winner = "";
+    board.resetBoard();
+  }
+
+  function checkBoard() {
+    const boardArr = board.getBoard()
+    const isFilled = (cell) => cell !== "";
+
+    if (boardArr[0][0] === "X" && boardArr[0][1] === "X" && boardArr[0][2] === "X") {
+      playerWins()
+    } else if (boardArr[1][0] === "X" && boardArr[1][1] === "X" && boardArr[1][2] === "X") {
+      playerWins()
+    } else if (boardArr[2][0] === "X" && boardArr[2][1] === "X" && boardArr[2][2] === "X") {
+      playerWins()
+    } else if (boardArr[0][0] === "X" && boardArr[1][0] === "X" && boardArr[2][0] === "X") {
+      playerWins()
+    } else if (boardArr[0][1] === "X" && boardArr[1][1] === "X" && boardArr[2][1] === "X") {
+      playerWins()
+    } else if (boardArr[0][2] === "X" && boardArr[1][2] === "X" && boardArr[2][2] === "X") {
+      playerWins()
+    } else if (boardArr[0][0] === "X" && boardArr[1][1] === "X" && boardArr[2][2] === "X") {
+      playerWins()
+    } else if (boardArr[0][2] === "X" && boardArr[1][1] === "X" && boardArr[2][0] === "X") {
+      playerWins()
+    } else if (boardArr[0][0] === "O" && boardArr[0][1] === "O" && boardArr[0][2] === "O") {
+      computerWins()
+    } else if (boardArr[1][0] === "O" && boardArr[1][1] === "O" && boardArr[1][2] === "O") {
+      computerWins()
+    } else if (boardArr[2][0] === "O" && boardArr[2][1] === "O" && boardArr[2][2] === "O") {
+      computerWins()
+    } else if (boardArr[0][0] === "O" && boardArr[1][0] === "O" && boardArr[2][0] === "O") {
+      computerWins()
+    } else if (boardArr[0][1] === "O" && boardArr[1][1] === "O" && boardArr[2][1] === "O") {
+      computerWins()
+    } else if (boardArr[0][2] === "O" && boardArr[1][2] === "O" && boardArr[2][2] === "O") {
+      computerWins()
+    } else if (boardArr[0][0] === "O" && boardArr[1][1] === "O" && boardArr[2][2] === "O") {
+      computerWins()
+    } else if (boardArr[0][2] === "O" && boardArr[1][1] === "O" && boardArr[2][0] === "O") {
+      computerWins()
+    } else if (boardArr.filter(row => row.every(isFilled)).length === 3) {
+      draw()
+    };
 
 
-  return { playRound, getCurrentPlayer, setPlayersNames, getPlayersNames }
+
+    function playerWins() {
+      //TODO: Change from console.log message to DOM display
+      // and game reset.
+      winner = players.first.name;
+    };
+
+
+    function computerWins() {
+      //TODO: Change from console.log message to DOM display
+      // and game reset.
+      winner = players.second.name;
+    };
+
+
+    function draw() {
+      //TODO: Change from console.log message to DOM display
+      // and game reset.
+      winner = "DRAW :("
+    };
+  };
+
+
+  return { playRound, getCurrentPlayer, getWinner, setPlayersNames, getPlayersNames, resetGame, checkBoard }
 };
 
 
@@ -71,87 +139,46 @@ function Gameboard() {
     }
   };
 
-  const isFilled = (cell) => cell !== "";
-
-  function checkBoard() {
-    if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
-      playerWins()
-    } else if (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") {
-      playerWins()
-    } else if (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X") {
-      playerWins()
-    } else if (board[0][0] === "X" && board[1][0] === "X" && board[2][0] === "X") {
-      playerWins()
-    } else if (board[0][1] === "X" && board[1][1] === "X" && board[2][1] === "X") {
-      playerWins()
-    } else if (board[0][2] === "X" && board[1][2] === "X" && board[2][2] === "X") {
-      playerWins()
-    } else if (board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") {
-      playerWins()
-    } else if (board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X") {
-      playerWins()
-    } else if (board[0][0] === "O" && board[0][1] === "O" && board[0][2] === "O") {
-      computerWins()
-    } else if (board[1][0] === "O" && board[1][1] === "O" && board[1][2] === "O") {
-      computerWins()
-    } else if (board[2][0] === "O" && board[2][1] === "O" && board[2][2] === "O") {
-      computerWins()
-    } else if (board[0][0] === "O" && board[1][0] === "O" && board[2][0] === "O") {
-      computerWins()
-    } else if (board[0][1] === "O" && board[1][1] === "O" && board[2][1] === "O") {
-      computerWins()
-    } else if (board[0][2] === "O" && board[1][2] === "O" && board[2][2] === "O") {
-      computerWins()
-    } else if (board[0][0] === "O" && board[1][1] === "O" && board[2][2] === "O") {
-      computerWins()
-    } else if (board[0][2] === "O" && board[1][1] === "O" && board[2][0] === "O") {
-      computerWins()
-    } else if (board.filter(row => row.every(isFilled)).length === 3) {
-      draw()
-    };
 
 
-    function playerWins() {
-      //TODO: Change from console.log message to DOM display
-      // and game reset.
-      console.log("Player wins!")
-    };
-
-
-    function computerWins() {
-      //TODO: Change from console.log message to DOM display
-      // and game reset.
-      console.log("Computer wins!")
-    };
-
-
-    function draw() {
-      //TODO: Change from console.log message to DOM display
-      // and game reset.
-      console.log("It's a draw!")
-    };
+  function resetBoard() {
+    board.forEach((row) => {
+      row.forEach((cell, j) => {
+        row[j] = "";
+      })
+    })
   };
 
 
-  return { getBoard, fillCell, checkBoard }
+  return { getBoard, fillCell, resetBoard }
 };
 
 function ScreenController() {
   const game = ticTacToe();
   const playerTurnDiv = document.querySelector("#player-turn")
+  const resultDiv = document.querySelector("#result")
   const cells = document.querySelectorAll(".cell")
   const resetBtn = document.querySelector("#reset");
   const playerOneBtn = document.querySelector("#player-one");
   const playerTwoBtn = document.querySelector("#player-two");
 
-  const clearCells = (cell) => {
+  const clearDisplay = () => {
     cells.forEach((cell) => {
       cell.textContent = "";
-    })
+    });
+
+    resultDiv.textContent = "";
   };
 
   const updateDisplay = () => {
     const currentPlayer = game.getCurrentPlayer()
+    const winner = game.getWinner()
+
+    if (winner) {
+      resultDiv.textContent = `The winner is: ${winner}!!`;
+      cells.forEach((cell) => cell.removeEventListener("click", clickHandler))
+    };
+
     if (currentPlayer === 1) {
       playerTurnDiv.textContent = `${game.getPlayersNames(1)} Turn`;
     } else if (currentPlayer === 2) {
@@ -168,9 +195,11 @@ function ScreenController() {
 
     if (currentPlayer === 1 && e.target.textContent === "") {
       e.target.textContent = "X"
+      //Deactivate cells clickHandler after filled
       e.target.removeEventListener("click", clickHandler)
     } else if (currentPlayer === 2 && e.target.textContent === "") {
       e.target.textContent = "O"
+      //Deactivate cells clickHandler after filled
       e.target.removeEventListener("click", clickHandler)
     };
 
@@ -179,7 +208,7 @@ function ScreenController() {
   };
 
   //Initialize empty board
-  clearCells();
+  clearDisplay();
   //Prompt for player names
   playerOneBtn.addEventListener("click", () => {
     game.setPlayersNames(1);
@@ -193,12 +222,21 @@ function ScreenController() {
   updateDisplay();
 
   //Click handler for cells
-  cells.forEach((cell) => {
-    cell.addEventListener("click", clickHandler)
-  });
+  function activateCells() {
+    cells.forEach((cell) => {
+      cell.addEventListener("click", clickHandler)
+    });
+  }
+
+  activateCells()
 
   //Reset button handler
-  resetBtn.addEventListener("click", () => ScreenController())
+  resetBtn.addEventListener("click", () => {
+    game.resetGame();
+    clearDisplay();
+    activateCells();
+    updateDisplay();
+  })
 
 }
 
