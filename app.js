@@ -126,6 +126,10 @@ function Gameboard() {
     };
   };
 
+
+  return { getBoard, fillCell, checkBoard }
+};
+
     }
   }
 function Gameboard() {
