@@ -1,3 +1,16 @@
+function ticTacToe() {
+
+  const board = Gameboard();
+  let currentPlayer = 1;
+
+  const getCurrentPlayer = () => currentPlayer;
+
+  function nextTurn() {
+    const nextPlayer = currentPlayer === 1 ? 2 : 1;
+    currentPlayer = nextPlayer
+  };
+
+
   function checkBoard() {
     if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
       playerWins()
