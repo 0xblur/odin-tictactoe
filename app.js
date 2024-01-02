@@ -104,6 +104,28 @@ function Gameboard() {
       draw()
     };
 
+
+    function playerWins() {
+      //TODO: Change from console.log message to DOM display
+      // and game reset.
+      console.log("Player wins!")
+    };
+
+
+    function computerWins() {
+      //TODO: Change from console.log message to DOM display
+      // and game reset.
+      console.log("Computer wins!")
+    };
+
+
+    function draw() {
+      //TODO: Change from console.log message to DOM display
+      // and game reset.
+      console.log("It's a draw!")
+    };
+  };
+
     }
   }
 function Gameboard() {
