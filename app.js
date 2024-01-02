@@ -21,6 +21,11 @@ function ticTacToe() {
     currentPlayer = nextPlayer
   };
 
+  function playRound(coordinates, player = currentPlayer) {
+    board.fillCell(coordinates, player)
+    board.checkBoard()
+    nextTurn()
+  };
 
   function checkBoard() {
     if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
