@@ -151,9 +151,9 @@ function ScreenController() {
   const updateDisplay = () => {
     const currentPlayer = game.getCurrentPlayer()
     if (currentPlayer === 1) {
-      playerTurnDiv.textContent = `${game.getPlayersNames("first")} Turn`;
+      playerTurnDiv.textContent = `${game.getPlayersNames(1)} Turn`;
     } else if (currentPlayer === 2) {
-      playerTurnDiv.textContent = `${game.getPlayersNames("second")} Turn`;
+      playerTurnDiv.textContent = `${game.getPlayersNames(2)} Turn`;
     }
   };
 
