@@ -130,28 +130,57 @@ function Gameboard() {
   return { getBoard, fillCell, checkBoard }
 };
 
-    }
-  }
-function Gameboard() {
-  const board = [
-    [],
-    [],
-    [],
-  ]
+function ScreenController() {
+  const game = ticTacToe();
+  const playerTurnDiv = document.querySelector("#player-turn")
+  const cells = document.querySelectorAll(".cell")
 
-  const getBoard = () => board;
-
-  const fillCell = (coordinates, player) => {
-    const [row, column] = coordinates
-
-    if (player === 1) {
-      board[row][column] = "X";
-    } else {
-      board[row][column] = "O";
-    };
+  const clearCells = (cell) => {
+    cells.forEach((cell) => {
+      cell.textContent = "";
+    })
   };
 
-  return { getBoard, fillCell }
+  const updateDisplay = () => {
+    const currentPlayer = game.getCurrentPlayer()
+    if (currentPlayer === 1) {
+      playerTurnDiv.textContent = `${game.getPlayersNames("first")} Turn`;
+    } else if (currentPlayer === 2) {
+      playerTurnDiv.textContent = `${game.getPlayersNames("second")} Turn`;
+    }
+  };
+
+
+  function clickHandler(e) {
+    const currentPlayer = game.getCurrentPlayer()
+    const row = e.target.dataset.row
+    const column = e.target.dataset.column
+    const coordinates = [row, column]
+
+    if (currentPlayer === 1 && e.target.textContent === "") {
+      e.target.textContent = "X"
+      e.target.removeEventListener("click", clickHandler)
+    } else if (currentPlayer === 2 && e.target.textContent === "") {
+      e.target.textContent = "O"
+      e.target.removeEventListener("click", clickHandler)
+    };
+
+    game.playRound(coordinates);
+    updateDisplay()
+  };
+
+  //Initialize empty board
+  clearCells();
+  //Prompt for player names
+  game.setPlayersNames()
+  //Initialize display
+  updateDisplay();
+
+  //Click handler for cells
+  cells.forEach((cell) => {
+    cell.addEventListener("click", clickHandler)
+  });
 
 }
-}
+
+ScreenController()
