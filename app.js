@@ -1,6 +1,17 @@
+/*INFO: Game controller for the TicTacToe*/
 function ticTacToe() {
-
   const board = Gameboard();
+  const players = {
+    first: {
+      name: "",
+      token: 1,
+    },
+    second: {
+      name: "",
+      token: 2,
+    },
+  };
+
   let currentPlayer = 1;
 
   const getCurrentPlayer = () => currentPlayer;
