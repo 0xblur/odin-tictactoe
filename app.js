@@ -100,8 +100,10 @@ function Gameboard() {
       computerWins()
     } else if (board[0][2] === "O" && board[1][1] === "O" && board[2][0] === "O") {
       computerWins()
-    } else {
+    } else if (board.filter(row => row.every(isFilled)).length === 3) {
       draw()
+    };
+
     }
   }
 function Gameboard() {
