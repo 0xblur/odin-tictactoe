@@ -3,11 +3,11 @@ function ticTacToe() {
   const board = Gameboard();
   const players = {
     first: {
-      name: "",
+      name: "Player 1",
       token: 1,
     },
     second: {
-      name: "",
+      name: "Player 2",
       token: 2,
     },
   };
