@@ -13,8 +13,10 @@ function ticTacToe() {
   };
 
   let currentPlayer = 1;
+  let winner = "";
 
   const getCurrentPlayer = () => currentPlayer;
+  const getWinner = () => winner;
 
   function nextTurn() {
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
