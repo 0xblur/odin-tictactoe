@@ -45,6 +45,28 @@ function ticTacToe() {
   return { playRound, getCurrentPlayer, setPlayersNames, getPlayersNames }
 };
 
+
+function Gameboard() {
+  const board = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ];
+
+  const getBoard = () => board;
+
+  const fillCell = (coordinates, player) => {
+    const [row, column] = coordinates
+
+    if (player === 1) {
+      board[row][column] = "X";
+    } else {
+      board[row][column] = "O";
+    }
+  };
+
+  const isFilled = (cell) => cell !== "";
+
   function checkBoard() {
     if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
       playerWins()
