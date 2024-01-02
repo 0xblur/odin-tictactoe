@@ -31,6 +31,14 @@ function ticTacToe() {
     players.first.name = prompt()
     players.second.name = prompt()
   };
+  function getPlayersNames(player) {
+    if (player === "first") {
+      return players.first.name;
+    } else if (player === "second") {
+      return players.second.name;
+    }
+
+  }
   function checkBoard() {
     if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
       playerWins()
